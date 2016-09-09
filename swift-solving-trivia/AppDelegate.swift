@@ -12,11 +12,35 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    /*
-     
-     write your function here
-     
-     */
-
+    func matchName(state: String, capital: String) -> Bool {
+        for letter in state.characters{
+            for letters in capital.characters {
+                if letter == letters {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    
+    
+    
+    func solveTrivia(states: [String : String]) -> String {
+        var answer = ""
+        for (state, capital) in states {
+            if matchName(state.lowercaseString, capital: capital.lowercaseString) {
+                answer = state
+            }
+        }
+        return answer
+    }
 }
+
+
+
+
+
+
+
 
